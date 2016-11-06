@@ -1,0 +1,11 @@
+---
+spring:
+  profiles:
+    active: dev
+  application:
+    name: oauth-server
+  cloud:
+    config:
+      uri: http://localhost:8001
+server:
+  port: 40051
