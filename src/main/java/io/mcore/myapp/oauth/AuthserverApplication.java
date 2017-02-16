@@ -1,4 +1,4 @@
-package io.mcore.ride.sharing.oauth;
+package io.mcore.myapp.oauth;
 
 import java.security.KeyPair;
 
@@ -30,10 +30,10 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import io.mcore.ride.sharing.oauth.model.AppClient;
-import io.mcore.ride.sharing.oauth.model.AppUser;
-import io.mcore.ride.sharing.oauth.repository.AppClientsRepository;
-import io.mcore.ride.sharing.oauth.repository.AppUsersRepository;
+import io.mcore.myapp.oauth.model.AppClient;
+import io.mcore.myapp.oauth.model.AppUser;
+import io.mcore.myapp.oauth.repository.AppClientsRepository;
+import io.mcore.myapp.oauth.repository.AppUsersRepository;
 
 @SpringBootApplication
 public class AuthserverApplication extends WebMvcConfigurerAdapter {

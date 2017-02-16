@@ -1,4 +1,4 @@
-package io.mcore.ride.sharing.oauth.model;
+package io.mcore.myapp.oauth.model;
 
 import java.util.Arrays;
 import java.util.Collection;

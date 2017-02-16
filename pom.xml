@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>io.mcore.ride.sharing</groupId>
-	<artifactId>oauth-server</artifactId>
+	<groupId>io.mcore.myapp</groupId>
+	<artifactId>oauth-server-jwt</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>authserver</name>
-	<description>oAuth2 Server</description>
+	<description>oAuth2 Server with token JWT</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
