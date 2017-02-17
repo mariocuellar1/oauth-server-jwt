@@ -76,14 +76,7 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
 		@Bean
 		public JwtAccessTokenConverter jwtAccessTokenConverter() {
-			// keytool -genkey -keyalg RSA -alias myapp -keystore keystore.jks
-			// -storepass myapp01
-
-			// keytool -list -rfc --keystore keystore.jks | openssl x509 -inform
-			// pem -pubkey
-
 			JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-			// converter.setAccessTokenConverter(new DAT());
 			KeyPair keyPair = new KeyStoreKeyFactory(new ClassPathResource("keystore.jks"), "myapp01".toCharArray())
 					.getKeyPair("myapp");
 			converter.setKeyPair(keyPair);
@@ -117,14 +110,6 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
 		@Override
 		public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-			/*
-			 * AppClient client2 = new AppClient(); client2.clientId = "acme";
-			 * client2.clientSecret = new
-			 * BCryptPasswordEncoder().encode("acmesecret"); client2.grantTypes
-			 * = "client_credentials,password,refresh_token,authorization_code";
-			 * client2.scopes = "read,write";
-			 * appClientsRepository.save(client2);
-			 */
 			AppClient client = appClientsRepository.findByClientId(clientId);
 			BaseClientDetails clientDetails = new BaseClientDetails();
 			clientDetails.setClientId(client.clientId);
@@ -144,11 +129,6 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
 		@Override
 		public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-			/*
-			 * AppUser user2 = new AppUser(); user2.userName = "user1";
-			 * user2.password = new BCryptPasswordEncoder().encode("password1");
-			 * user2.roles = "ADMIN,USER"; userRepository.save(user2);
-			 */
 			AppUser user = userRepository.findByUserName(username);
 			if (user == null) {
 				throw new UsernameNotFoundException(username);

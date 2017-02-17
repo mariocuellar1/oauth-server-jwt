@@ -1,0 +1,227 @@
+{
+	"variables": [],
+	"info": {
+		"name": "JWTOauthServerAndResourceTest",
+		"_postman_id": "ada43bfb-66e9-2976-d3a3-93d45d549268",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token - password",
+			"request": {
+				"url": "http://localhost:40051/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "scope",
+							"value": "read",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Autorize",
+			"request": {
+				"url": "http://localhost:40051/oauth/authorize?response_type=code&redirect_uri=/OAuthClient/login&client_id=acme",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "acme",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "user_name",
+							"value": "a",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "a",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token - code",
+			"request": {
+				"url": "http://localhost:40051/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "code",
+							"value": "iKZw2X",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "/OAuthClient/login",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token - client_credentials",
+			"request": {
+				"url": "http://localhost:40051/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token - refresh_token",
+			"request": {
+				"url": "http://localhost:40051/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyMSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiI0N2JiMzcyNC0wZGMwLTQ4NjgtYTZjZi1hODdhZDNhYzhjYjkiLCJleHAiOjE0ODk4NTU4OTcsImF1dGhvcml0aWVzIjpbIlVTRVIiLCJBRE1JTiJdLCJqdGkiOiI4OTA4YjlmOS04YWI3LTQ4YjAtOGUwMy02OWE3ZGIwMzU1ZTYiLCJjbGllbnRfaWQiOiJhY21lIn0.DK9R9PRYow2x_om6B7V9W3niR6P9vV6ZBvkiPjYGX3c_oMb2LBt9ZwUXEI-dLRKhvKgufU_CdlZbGU65k3QjDNhtydyWYdtGWt-lfeOMaHkwz5AVsYaKDNiE0USsfWE4X1_-2sNO-mF34kTyF1rVwlxA0GfXIHL7f_b91tFFcrNBb_rrMYSFBbtRbLl6nxWVZSwmX4CNxx8SaMzHVvWpvcpbr0NRloU0lYOH28APQvdq9T82UtQiIJkr3CvvrJxU1GoJBpb7hzSBWEODHmA98mMLyDFUoobjJ-g8h0R6byEzBXhZlG5FW5FlZUTWxTa__o3mIPhP_CJve2LWvGxoqQ",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "acme",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token - checktoken",
+			"request": {
+				"url": "http://localhost:40051/oauth/check_token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWNtZTphY21lc2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNDg3MzA3MTY0LCJqdGkiOiJkNTRkODc5NS0zNDFkLTQxZjktYjY2NS1mYjlmNjZhNTVkNjciLCJjbGllbnRfaWQiOiJhY21lIn0.Wdol5ikPb3DNALAPNW5SQJ09azF1nl5LO5Fu_xe0k4Pwvl4wJFtMiXhkUmK_qCXiYe8vES91zDEL6ohicc-mXCTrLHa473OOyB8wit51NOndaWr5vMd9oYvH_B4ksrlRwsO4v2OH5gy5x1vX_9yLKOVVOKx7-pXAcheLwEjBZROldnLJ5sgAYp1SoGYb81Ge_SEqjG1yPLGN9oJk14n0VErOCTCia8qX3JPw76Ff1-f0bCtD7iedJgqfXKQ52dGFHyJV7gs9sWO5D7Xigku4wL0QdMADfC67jJn3lOmrN3BuuasdsYS6BlzLysxtovdKcwGVBxgKC9gIsNqXMvxeRg",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
