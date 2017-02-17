@@ -105,6 +105,8 @@ ex6eY3sEKijUfqdjXSqGmshoBhdE+iGOHuntfn4ojuVxCiieV9oNym93mNpCK66E
 -----END PUBLIC KEY-----
 ```
 
+Change alias and password in code (creating KeyStoreKeyFactory)
+
 And you Done !!!!
 
 Notes:
